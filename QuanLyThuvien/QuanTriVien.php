@@ -45,7 +45,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['upload_book'])) {
             else $errors[] = "Không thể lưu ảnh.";
         }
     }
-// file
+
+    //file
     $file_path = null;
     if (!empty($_FILES['bookfile']['name'])) {
         $f = $_FILES['bookfile'];
@@ -60,13 +61,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['upload_book'])) {
             else $errors[] = "Không thể lưu file sách.";
         }
     }
+    
 
-if (empty($errors)) {
+    if (empty($errors)) {
         $ins = $pdo->prepare("INSERT INTO books (title, author, description, category_id, image_path, file_path, created_by) VALUES (?, ?, ?, ?, ?, ?, ?)");
         $ins->execute([$title, $author, $desc, $category_id ?: null, $img_path, $file_path, $user['id']]);
         $messages[] = "Đã thêm sách: ". e($title);
     }
 }
+
 include 'header.php';
 ?>
 <div class="right">
@@ -116,6 +119,7 @@ include 'header.php';
 
 
     
+
 
 
 
