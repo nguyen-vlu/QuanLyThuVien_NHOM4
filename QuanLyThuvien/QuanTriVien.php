@@ -6,9 +6,11 @@ if (!$user || !$user['is_admin']) {
     header('Location: login.php');
     exit;
 }
-$categories = $pdo->query("SELECT * FROM categories ORDER BY name")->fetchAll();
+
+$categories = $pdo->query("SELECT * FROM categories ORDER BY name")->fetchAll(PDO::FETCH_ASSOC);
 $messages = [];
 $errors = [];
+
 // add category
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add_category'])) {
     $cname = trim($_POST['category_name'] ?? '');
@@ -21,6 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add_category'])) {
         $errors[] = "Tên thể loại trống.";
     }
 }
+
 // upload book
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['upload_book'])) {
     $title = trim($_POST['title'] ?? '');
@@ -29,8 +32,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['upload_book'])) {
     $category_id = $_POST['category_id'] ?: null;
 
     if (!$title) $errors[] = "Tiêu đề sách bắt buộc.";
-    
-        // image
+
+    // image
     $img_path = null;
     if (!empty($_FILES['image']['name'])) {
         $img = $_FILES['image'];
@@ -46,7 +49,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['upload_book'])) {
         }
     }
 
-    //file
+    // file
     $file_path = null;
     if (!empty($_FILES['bookfile']['name'])) {
         $f = $_FILES['bookfile'];
@@ -61,7 +64,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['upload_book'])) {
             else $errors[] = "Không thể lưu file sách.";
         }
     }
-    
 
     if (empty($errors)) {
         $ins = $pdo->prepare("INSERT INTO books (title, author, description, category_id, image_path, file_path, created_by) VALUES (?, ?, ?, ?, ?, ?, ?)");
@@ -109,24 +111,3 @@ include 'header.php';
   </div>
 </div>
 <?php include 'footer.php'; ?>
-
-
-
-
-
-
-
-
-
-    
-
-
-
-
-
-
-
-
-
-
-
