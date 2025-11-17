@@ -1,0 +1,48 @@
+:root {
+  --red: #c8102e;
+  --dark: #13293d;
+}
+*{box-sizing:border-box}
+body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #fff; color: #152238; }
+.header{ display:flex; justify-content:space-between; align-items:center; padding:10px 40px; border-bottom:2px solid #eee; background: #fff; }
+.logo{height:40px;width:160px;object-fit:contain}
+.title{font-weight:900;color:var(--dark);font-size:40px}
+.header-right .btn{ background:var(--red);color:#fff;padding:8px 14px;border-radius:6px;text-decoration:none;margin-left:8px;font-weight:700;}
+.header-right .welcome{margin-right:12px;font-weight:600}
+.banner{width:100%;height:650px;}
+.banner-img{width:100%;height:650px;object-fit:cover}
+.menu{background:var(--red);color:#fff;display:flex;align-items:center;gap:18px;padding:12px;justify-content:center;font-weight:700}
+.menu a{color:#fff;text-decoration:none;font-size:16px}
+.menu input{margin-left:40px;padding:6px 12px;border-radius:20px;border:none;width:280px}
+.container{padding:30px 60px}
+.left{width:280px;float:left}
+.right{margin-left:100px}
+.left-box{border:1px solid #eee;padding:16px;margin-bottom:16px; width: 300px;}
+.left-box h3{color:#152238}
+.left-box ul{list-style:none;padding-left:0}
+.left-box li{margin:8px 0}
+.left-box li a{color:#152238;text-decoration:none}
+.right .box{border:2px solid #eee;padding:20px;width: 1200px; height: 200px;}
+.picture{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+.picture img{width:300px;object-fit:cover;border:2px solid #eee}
+.video{display:flex;justify-content:center;margin-top:10px}
+.footer{background:var(--red);color:#fff;text-align:center;padding:14px;margin-top:30px;font-weight:700}
+@media (max-width:900px){
+  .container{padding:20px}
+  .left{width:100%;float:none}
+  .right{margin-left:0}
+  .banner-img{height:120px}
+  .menu{flex-wrap:wrap}
+}
+/*Phieu muon*/
+.right_PhieuMuon .box_PhieuMuon{border:2px solid #eee;padding:20px;width: 1200px; height: 650px; margin-left:100px}
+label{font-size: 20px; margin-left: 20px;margin-right: 20px;}
+input{height: 30px; width: 1000px;margin-left: 20px; margin-right: 20px;}
+button{background-color: #c8102e; color: #eee; font-size: 20px;margin-left: 20px; margin-right: 20px;}
+/*QUanTriVien*/
+.right_QTV .box_QTV{border:2px solid #eee;padding:30px;width: 1700px; height: 750px; margin-left:100px; }
+label{font-size: 20px; margin-left: 20px;margin-right: 20px;}
+input{height: 30px; width: 1000px;margin-left: 20px; margin-right: 20px;}
+button{background-color: #c8102e; color: #eee; font-size: 20px;margin-left: 20px; margin-right: 20px;}
+textarea{width: 1000px;margin-left: 20px; margin-right: 20px;}
+select{width: 500;margin-left: 20px; margin-right: 20px;font-size: 15px;}
