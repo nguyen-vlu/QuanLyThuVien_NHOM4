@@ -67,6 +67,46 @@ if (empty($errors)) {
         $messages[] = "Đã thêm sách: ". e($title);
     }
 }
+include 'header.php';
+?>
+<div class="right">
+  <div class="box">
+    <h2>Thẻ Quản Trị Viên</h2>
+    <?php foreach($messages as $m) echo "<div style='color:green'>". e($m) ."</div>"; ?>
+    <?php foreach($errors as $e) echo "<div style='color:red'>". e($e) ."</div>"; ?>
+
+    <h3>Thêm thể loại nhanh</h3>
+    <form method="post">
+      <input type="text" name="category_name" placeholder="Tên thể loại...">
+      <button type="submit" name="add_category">Thêm thể loại</button>
+    </form>
+
+    <hr>
+    <h3>Đăng tải sách</h3>
+    <form method="post" enctype="multipart/form-data">
+      <label>Tên Sách</label><br>
+      <input type="text" name="title" required><br><br>
+      <label>Thể Loại</label><br>
+      <select name="category_id">
+        <option value="">-- Chọn thể loại --</option>
+        <?php foreach($categories as $c): ?>
+          <option value="<?= e($c['id']) ?>"><?= e($c['name']) ?></option>
+        <?php endforeach; ?>
+      </select><br><br>
+      <label>Tác giả</label><br>
+      <input type="text" name="author"><br><br>
+      <label>Nội dung chính</label><br>
+      <textarea name="description" rows="4" cols="60"></textarea><br><br>
+      <label>Hình ảnh bìa</label><br>
+      <input type="file" name="image" accept="image/*"><br><br>
+      <label>File sách (pdf/epub/txt)</label><br>
+      <input type="file" name="bookfile" accept=".pdf,.epub,.txt"><br><br>
+      <button type="submit" name="upload_book">Đăng Tải</button>
+    </form>
+  </div>
+</div>
+<?php include 'footer.php'; ?>
+
 
 
 
@@ -76,6 +116,7 @@ if (empty($errors)) {
 
 
     
+
 
 
 
