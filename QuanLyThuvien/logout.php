@@ -1,6 +1,6 @@
 <?php
 session_start();
+session_unset();
 session_destroy();
-header("Location: TrangChu.php");
+header("Location: index.php");
 exit();
-?>
