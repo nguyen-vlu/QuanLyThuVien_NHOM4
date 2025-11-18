@@ -1,7 +1,6 @@
 <?php
 require_once 'config.php';
 include 'header.php';
-
 $stmt = $pdo->query("SELECT b.*, c.name as cat FROM books b LEFT JOIN categories c ON b.category_id=c.id ORDER BY b.created_at DESC LIMIT 4");
 $books = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
@@ -36,9 +35,10 @@ $books = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <?php foreach($books as $b): ?>
           <?php if ($b['image_path'] && file_exists($b['image_path'])): ?>
             <img src="<?= e($b['image_path']) ?>" alt="" style="width:200px;height:140px;object-fit:cover">
-          <?php else: ?>
-            <div style="width:200px;height:140px;background:#f2f2f2;display:flex;align-items:center;justify-content:center">No Image</div>
-          <?php endif; ?>
+            <?php else: ?>
+              <div style="width:200px;height:140px;background:#f2f2f2;display:flex;align-items:center;justify-content:center">No Image</div>
+            <?php endif; ?>
+          <?php endforeach; ?>
         <?php endforeach; ?>
       </div>
     </div>
@@ -48,4 +48,4 @@ $books = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <?php include 'footer.php'; ?>
 
 
-
+        
