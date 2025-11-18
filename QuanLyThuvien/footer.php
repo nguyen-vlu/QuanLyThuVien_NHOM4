@@ -3,7 +3,7 @@
 ?>
 </div> <!-- .container -->
 <footer class="footer">
-    📧 ThuVienVLU.vn 📞 0923892765
+    📧 ThuVienVLU.vn 
 </footer>
 </body>
 </html>
